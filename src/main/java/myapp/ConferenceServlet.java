@@ -25,7 +25,7 @@ public class ConferenceServlet extends HttpServlet {
         doProcess(req, resp);
     }
 
-    private void doProcess(final HttpServletRequest req, final HttpServletResponse resp) throws IOException {
+    private synchronized void doProcess(final HttpServletRequest req, final HttpServletResponse resp) throws IOException {
         System.out.println("[conference] " + req.getRemoteHost() + ", " + req.getMethod());
 
         final Enumeration<String> headerNames = req.getHeaderNames();
